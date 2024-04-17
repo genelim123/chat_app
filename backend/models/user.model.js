@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 // Creating User Model
 
 // User Schema
-const userSchema = new mongoose.Schema ({
+const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
         required: true
@@ -27,7 +27,9 @@ const userSchema = new mongoose.Schema ({
         type: String,
         default: "",
     },
-});
+},
+    // timestamps: true option automatically creates updatedAt and createdAt => member since <createdAt> 
+    { timestamps: true });
 
 // User Model using User Schema
 const User = mongoose.model("User", userSchema);

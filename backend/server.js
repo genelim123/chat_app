@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
 import connectToMongoDB from './db/connectToMongoDB.js';
+import messageRoutes from './routes/message.routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,7 +15,7 @@ app.use(express.json());
 
 // Setup Auth Routes with /api/auth prefix (Middleware)
 app.use('/api/auth', authRoutes);
-
+app.use('/api/messages', messageRoutes);
 
 
 // app.get('/', (req, res) => {
